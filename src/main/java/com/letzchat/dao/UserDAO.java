@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.letzchat.model.User;
 
 public interface UserDAO {
@@ -18,6 +20,6 @@ public interface UserDAO {
 	public boolean update(User user);
 	public boolean delete(String id);
 	
-	public void storeFile(User user, HttpServletRequest request);
+	public void storeFile(MultipartFile file, HttpServletRequest request);
 	
 }

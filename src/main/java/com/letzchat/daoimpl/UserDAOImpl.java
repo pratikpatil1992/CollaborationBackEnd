@@ -2,7 +2,9 @@ package com.letzchat.daoimpl;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -26,27 +28,22 @@ import com.letzchat.model.User;
 @Transactional
 public class UserDAOImpl implements UserDAO {
 
-	public void storeFile(User user,HttpServletRequest request)
+	public void storeFile(MultipartFile file,HttpServletRequest request)
 	{
-		System.out.println(request.getRealPath("/"));
-		String path=request.getRealPath("/")+"resources\\userimages\\"+user.getImagepath();
-		MultipartFile file=user.getFile();
-		if(!file.isEmpty())
-		{
-			try
-			{
-				byte[] bytes=file.getBytes();
-				System.out.println(file.getOriginalFilename());
-				File serverFile=new File(path);
-				serverFile.createNewFile();
-				BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(serverFile));
-				stream.write(bytes);
-				stream.close();
-			}
-			catch(Exception e)
-			{
-				System.out.println(e);
-			}
+		try {
+			byte[] bytes=file.getBytes();
+			String path=request.getRealPath("/")+"images\\userimages\\"+file.getName();
+			File serverFile=new File(path);
+			serverFile.createNewFile();
+			BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(serverFile));
+			stream.write(bytes);
+			stream.close();
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
