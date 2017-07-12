@@ -1,15 +1,14 @@
-package com.letzchat.Collaboration;
+package com.letzchat.collaboration;
 
 
 import static org.junit.Assert.*;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.letzchat.Collaboration.dao.BlogDAO;
-import com.letzchat.Collaboration.model.Blog;
+import com.letzchat.dao.BlogDAO;
+import com.letzchat.model.Blog;
 
 
 public class BlogDAOTestCase {
@@ -40,9 +39,7 @@ public class BlogDAOTestCase {
 		blog.setId("B001");
 		blog.setTitle("FriendsChat");
 		blog.setUser_id("U001");
-		blog.setStatus('A');
 		blog.setDescription("Stay connected with me");
-		blog.setReason("Checking connection");
 		blog.setDate_time(null);
 		
 		boolean flag=blogDAO.save(blog);
@@ -55,9 +52,7 @@ public class BlogDAOTestCase {
 		blog.setId("B001");
 		blog.setTitle("FriendsChat");
 		blog.setUser_id("U002");
-		blog.setStatus('A');
 		blog.setDescription("Stay Connected in Free Time");
-		blog.setReason("Connection");
 		boolean flag =blogDAO.update(blog);
 		assertEquals("updateBlogTestCase", true,flag);
 
@@ -70,7 +65,7 @@ public class BlogDAOTestCase {
 		assertEquals("getBlogTestCAse",null,blog);
 	}
 	
-	//@Test
+	@Test
 	public void getAllBlogTestCase()
 	{
 		int size=blogDAO.list().size();

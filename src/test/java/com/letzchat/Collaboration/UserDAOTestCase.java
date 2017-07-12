@@ -1,4 +1,4 @@
-package com.letzchat.Collaboration;
+package com.letzchat.collaboration;
 
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.letzchat.Collaboration.dao.UserDAO;
-import com.letzchat.Collaboration.model.User;
+import com.letzchat.dao.UserDAO;
+import com.letzchat.model.User;
 
 import junit.framework.Assert;
 
@@ -36,7 +36,7 @@ public class UserDAOTestCase {
 	//@Test
 	public void validateCredentialTestCase()
 	{
-		User user= userDAO.isValidate("U001", "Akku");
+		User user= userDAO.validate("U001", "Akku");
 		Assert.assertEquals("validateCredentialTestCase", true,user);
 	}
 	

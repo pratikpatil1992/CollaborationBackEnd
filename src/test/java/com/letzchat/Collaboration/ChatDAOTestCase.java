@@ -1,4 +1,4 @@
-package com.letzchat.Collaboration;
+package com.letzchat.collaboration;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.letzchat.Collaboration.dao.ChatDAO;
-import com.letzchat.Collaboration.model.Chat;
+import com.letzchat.dao.ChatDAO;
+import com.letzchat.model.Chat;
 
 public class ChatDAOTestCase 
 {

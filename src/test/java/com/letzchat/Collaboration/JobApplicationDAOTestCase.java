@@ -1,14 +1,16 @@
-package com.letzchat.Collaboration;
+package com.letzchat.collaboration;
 
 import static org.junit.Assert.*;
+
+import java.util.Date;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.letzchat.Collaboration.dao.JobApplicationDAO;
-import com.letzchat.Collaboration.model.JobApplication;
+import com.letzchat.dao.JobApplicationDAO;
+import com.letzchat.model.JobApplication;
 
 public class JobApplicationDAOTestCase {
 	
@@ -24,7 +26,7 @@ public class JobApplicationDAOTestCase {
 	@BeforeClass
 	public static void init()
 	{
-	context	=new  AnnotationConfigApplicationContext ();
+		context	=new  AnnotationConfigApplicationContext ();
 		context.scan("com.letzchat");
 		context.refresh();
 		
@@ -37,12 +39,12 @@ public class JobApplicationDAOTestCase {
 	@Test
 	public void createJobAppTestCase()
 	{
-		jobApplication.setId("001");
-		jobApplication.setJob_id("J001");
-		jobApplication.setUser_id("U002");
+		jobApplication.setId("JA1");
+		jobApplication.setJob_id("J1");
+		jobApplication.setUser_id("U2");
 		jobApplication.setStatus('W');
 		jobApplication.setRemark("Waiting");
-		jobApplication.setDateApplied(null);
+		jobApplication.setDateApplied(new Date());
 		
 		boolean flag= jobApplicationDAO.save(jobApplication);
 		assertEquals("createJobAppTestCase",true,flag);

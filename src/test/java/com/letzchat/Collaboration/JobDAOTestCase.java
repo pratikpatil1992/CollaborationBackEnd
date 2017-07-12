@@ -1,4 +1,4 @@
-package com.letzchat.Collaboration;
+package com.letzchat.collaboration;
 
 import static org.junit.Assert.*;
 
@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.letzchat.Collaboration.dao.JobDAO;
-import com.letzchat.Collaboration.model.Job;
+import com.letzchat.dao.JobDAO;
+import com.letzchat.model.Job;
 
 public class JobDAOTestCase {
 	
