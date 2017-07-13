@@ -31,7 +31,6 @@ private static Logger log = LoggerFactory.getLogger(ChatDAOImpl.class);
 	}
 
 	public List<Chat> list() {
-		
 		return sessionFactory.openSession().createQuery("from Chat").list();
 	}
 
@@ -43,7 +42,6 @@ private static Logger log = LoggerFactory.getLogger(ChatDAOImpl.class);
 			session.close();
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}

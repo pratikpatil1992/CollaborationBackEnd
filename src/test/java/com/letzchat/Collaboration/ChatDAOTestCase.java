@@ -42,7 +42,6 @@ public class ChatDAOTestCase
 		chat.setMessage("Hi");
 		chat.setFriend_id("F001");
 		chat.setDateTime(null);
-		chat.setComment_date(null);
 		
 		boolean flag=chatDAO.save(chat);
 		assertEquals("createChatTestCase",true,flag);
@@ -56,7 +55,6 @@ public class ChatDAOTestCase
 		chat.setMessage("Hiiiii");
 		chat.setFriend_id("F001");
 		chat.setDateTime(null);
-		chat.setComment_date(null);
 		boolean flag=chatDAO.update(chat);
 		assertEquals("updateChatTestCase",true,flag);
 	}

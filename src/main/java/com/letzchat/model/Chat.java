@@ -5,13 +5,11 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name="chat")
 public class Chat extends BaseDomain{
 
 	@Id
@@ -29,9 +27,6 @@ public class Chat extends BaseDomain{
 	
 	@Column
 	private String message;
-	
-	@Column(name="comment_date")
-	private Date comment_date;
 	
 	public String getId() {
 		return id;
@@ -62,11 +57,5 @@ public class Chat extends BaseDomain{
 	}
 	public void setMessage(String message) {
 		this.message = message;
-	}
-	public Date getComment_date() {
-		return comment_date;
-	}
-	public void setComment_date(Date comment_date) {
-		this.comment_date = new Date();
 	}
 }
