@@ -42,9 +42,22 @@ public class CommentDAOImpl implements CommentDAO
 		
 	}
 
-	@Override
-	public void remove(Comment comment) {
-		
+	public boolean delete(String id) {
+		log.debug("Starting of the method delete");
+		log.debug("Trying to delete the record : " + id);
+		try {
+			Session session=sessionFactory.openSession();
+			session.delete(get(id));
+			session.flush();
+			session.close();
+			log.debug("successfully deleted the record :" + id);
+		} catch (HibernateException e) {
+			log.debug("record does not exist with the id " + id);
+			return false;
+			
+		}
+		log.debug("Ending of the method delete");
+		return true;
 	}
 	
 	public boolean save(Comment comment) {

@@ -1,13 +1,18 @@
 package com.letzchat.model;
 
+
 public class Message {
 
 	private String message;
-	
-	private long id;
-	
-	private String user_id;
 
+	private String id;
+	public Message(String id, String message) {
+		this.id = id;
+		this.message = message;
+	}
+	public Message() {
+	
+	}
 	public String getMessage() {
 		return message;
 	}
@@ -16,28 +21,15 @@ public class Message {
 		this.message = message;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public String getUser_id() {
-		return user_id;
-	}
+	
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-	
-	public Message(String message, long id, String user_id) {
-		super();
-		this.message = message;
-		this.id = id;
-		this.user_id = user_id;
-	}
-	
 	
 }

@@ -3,21 +3,23 @@ package com.letzchat.model;
 import java.util.Date;
 
 public class OutputMessage extends Message {
-	
+
 	private Date time;
-    
-    
-    public OutputMessage(Message original, Date time) {
-    	super(original.getMessage(),original.getId(), original.getUser_id());
-    	this.time=time;
-    }
-  
+
+
+
+	public OutputMessage(Message original,Date date) {
+		super(original.getId(), original.getMessage());
+		this.time = date;
+		
+	}
+
 	public Date getTime() {
-        return time;
-    }
-    
-    public void setTime(Date time) {
-        this.time = time;
-    }
-	
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
 }

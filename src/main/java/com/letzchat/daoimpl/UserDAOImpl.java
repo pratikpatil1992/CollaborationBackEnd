@@ -33,6 +33,11 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			byte[] bytes=file.getBytes();
 			String path=request.getRealPath("/")+"images\\userimages\\"+file.getName();
+			System.out.println(path);
+			path=path.substring(0,96);
+			path=path.concat("CollaborationFrontEnd\\images\\userimages\\");
+			path=path.concat(file.getOriginalFilename());
+			System.out.println(path);
 			File serverFile=new File(path);
 			serverFile.createNewFile();
 			BufferedOutputStream stream=new BufferedOutputStream(new FileOutputStream(serverFile));
@@ -56,6 +61,27 @@ public class UserDAOImpl implements UserDAO {
 	public User get(String id) {
 		User userdetails= (User)sessionFactory.openSession().get(User.class, id);
 		return userdetails;
+	}
+	
+	public User getUser(String id){
+		log.debug("->->Starting of the method getUser");
+		String hql = "from User where id="+"'"+id+"'";
+		
+		log.debug("Query is : "+hql);
+		
+		Query query = sessionFactory.openSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<User> list = (List<User>) query.list();
+		
+		if (list != null && !list.isEmpty()) {
+			User u=(User) list.get(0);
+			log.debug("Got:"+u.getName());
+			System.out.println(u);
+			return u;
+		}
+		
+		return null;
 	}
 
 	public List<User> list() {

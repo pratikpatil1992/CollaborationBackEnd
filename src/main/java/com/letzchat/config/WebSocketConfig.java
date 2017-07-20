@@ -1,4 +1,3 @@
-
 package com.letzchat.config;
 
 import org.slf4j.Logger;
@@ -15,28 +14,24 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @ComponentScan("com.letzchat")
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer
 {
-	private static final Logger logger = LoggerFactory.getLogger(WebSocketConfig.class);
+	private static final Logger log = LoggerFactory.getLogger(WebSocketConfig.class);
     
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) 
     {
-    	logger.debug("Starting method configureMessageBroker");
+    	log.debug("Starting method configureMessageBroker");
     	config.enableSimpleBroker("/topic", "/queue");
     	config.setApplicationDestinationPrefixes("/app");
-    	logger.debug("Ending method configureMessageBroker");
-}
+    	log.debug("Ending method configureMessageBroker");
+    }
 
 
-    public void registerStompEndpoints(StompEndpointRegistry registry) 
+    public void registerStompEndpoints(StompEndpointRegistry registry)
     {
-    	logger.debug("Starting method registerStompEndpoints");
+    	log.debug("Starting method registerStompEndpoints");
     	registry.addEndpoint("/chat").withSockJS();
     	registry.addEndpoint("/chat_forum").withSockJS();
-    	logger.debug("Ending method registerStompEndpoints");
+    	log.debug("Ending method registerStompEndpoints");
     }
 }
-
-
-
-

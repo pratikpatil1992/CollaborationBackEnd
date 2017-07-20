@@ -11,6 +11,7 @@ import com.letzchat.model.User;
 public interface UserDAO {
 
 	public User get(String id);
+	public User getUser(String id);
 	
 	public List<User> list();
 	public List<User> searchlist(String name);

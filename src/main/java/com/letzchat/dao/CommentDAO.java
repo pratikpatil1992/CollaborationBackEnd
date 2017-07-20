@@ -15,5 +15,5 @@ public interface CommentDAO {
 	public void add(Comment comment) ;
 
 	public boolean save(Comment comment);
-	public void remove(Comment comment);
+	public boolean delete(String id);
 }

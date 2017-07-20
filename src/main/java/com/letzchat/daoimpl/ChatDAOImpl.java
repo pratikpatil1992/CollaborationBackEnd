@@ -66,7 +66,7 @@ private static Logger log = LoggerFactory.getLogger(ChatDAOImpl.class);
 		log.debug("Trying to delte the record : " + id);
 		try {
 			sessionFactory.openSession().delete(get(id));
-			log.debug("successfully delted the record :" + id);
+			log.debug("successfully deleted the record :" + id);
 		} catch (HibernateException e) {
 			log.debug("record does not exist with the id " + id);
 			return false;
