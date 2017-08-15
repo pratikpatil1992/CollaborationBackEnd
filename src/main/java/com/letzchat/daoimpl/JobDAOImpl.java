@@ -32,6 +32,10 @@ public class JobDAOImpl implements JobDAO {
 		return (Job) sessionFactory.openSession().get(Job.class, id);
 		
 	}
+	
+	public List<Job> searchlist(String title) {
+		return sessionFactory.openSession().createQuery("from Job where lower(title) like "+"'"+title+"'").list();
+	}
 
 	public List<Job> list() {
 		

@@ -89,7 +89,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public List<User> searchlist(String name) {
-		return sessionFactory.openSession().createQuery("from User where name='"+name+"'").list();
+		return sessionFactory.openSession().createQuery("from User where lower(name) like "+"'"+name+"'").list();
 	}
 	
 	public User validate(String email, String password) {

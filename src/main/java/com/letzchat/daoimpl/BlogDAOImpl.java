@@ -96,5 +96,9 @@ public class BlogDAOImpl implements BlogDAO
 		log.debug("Ending of the method delete");
 		return true;
 	}
+	
+	public List<Blog> searchlist(String title) {
+		return sessionFactory.openSession().createQuery("from Blog where lower(title) like "+"'"+title+"'").list();
+	}
 
 }

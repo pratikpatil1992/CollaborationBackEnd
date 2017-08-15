@@ -19,7 +19,9 @@ public interface JobDAO {
 	public boolean delete(String id);
 	
 	public boolean updateJob(JobApplication jobApplication);
-
+	
+	public List<Job> searchlist(String title);
+	
 	public JobApplication getJobApplication(String id);
 	public List<Job>  getMyAppliedJobs(String userID);
 	//select * from JobApplication where userID = ? and jobId=?
